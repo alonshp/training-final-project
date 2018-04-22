@@ -1,32 +1,41 @@
 PODS:
   - Alamofire (4.7.2)
-  - AwesomeCache (3.0.1)
+  - Cache (4.2.0)
   - Kingfisher (4.7.0)
   - MBProgressHUD (1.1.0)
   - VideoSplashKit (1.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - AwesomeCache (~> 3.0)
+  - Cache
   - Kingfisher (~> 4.0)
   - MBProgressHUD (~> 1.1.0)
-  - VideoSplashKit
+  - VideoSplashKit (from `https://github.com/svtek/VideoSplashKit.git`, branch `swift4`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - AwesomeCache
+    - Cache
     - Kingfisher
     - MBProgressHUD
-    - VideoSplashKit
+
+EXTERNAL SOURCES:
+  VideoSplashKit:
+    :branch: swift4
+    :git: https://github.com/svtek/VideoSplashKit.git
+
+CHECKOUT OPTIONS:
+  VideoSplashKit:
+    :commit: 7a052b5f66126ff7bbba7f6e1da1b6b448048fff
+    :git: https://github.com/svtek/VideoSplashKit.git
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  AwesomeCache: a1561c926b6cf812c5f3f4262ea22e20bf8323c1
+  Cache: f28f8dd64b632155aabf9b3906b036a659048251
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  VideoSplashKit: 9d5670948cfb0be15262d973cedbfd3faecddcad
+  VideoSplashKit: 4c298beaeab434b13d382c717ea5546570c1949d
 
-PODFILE CHECKSUM: eb692abe6ec1bfb48a35d51069baf2fed96d4470
+PODFILE CHECKSUM: badbaea2a7147307f767607a1b3fa9f986a850f1
 
 COCOAPODS: 1.5.0

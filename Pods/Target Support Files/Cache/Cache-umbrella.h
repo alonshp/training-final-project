@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "NSKeyedUnarchiverWrapper.h"
 
-FOUNDATION_EXPORT double AwesomeCacheVersionNumber;
-FOUNDATION_EXPORT const unsigned char AwesomeCacheVersionString[];
+FOUNDATION_EXPORT double CacheVersionNumber;
+FOUNDATION_EXPORT const unsigned char CacheVersionString[];
 
