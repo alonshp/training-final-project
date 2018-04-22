@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.7.2)
+  - AwesomeCache (3.0.1)
+  - Kingfisher (4.7.0)
+  - MBProgressHUD (1.1.0)
+  - VideoSplashKit (1.2.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - AwesomeCache (~> 3.0)
+  - Kingfisher (~> 4.0)
+  - MBProgressHUD (~> 1.1.0)
+  - VideoSplashKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AwesomeCache
+    - Kingfisher
+    - MBProgressHUD
+    - VideoSplashKit
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AwesomeCache: a1561c926b6cf812c5f3f4262ea22e20bf8323c1
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  VideoSplashKit: 9d5670948cfb0be15262d973cedbfd3faecddcad
+
+PODFILE CHECKSUM: eb692abe6ec1bfb48a35d51069baf2fed96d4470
+
+COCOAPODS: 1.5.0
