@@ -11,4 +11,14 @@ import Foundation
 struct WeatherData {
     var weatherString: String
     var temperature: String
+    
+    static func parseJsonDictionaryToWeatherData(jsonDictionary: [String : Any]) -> WeatherData? {
+        if let currentObservation = jsonDictionary["current_observation"] as? Dictionary<String,Any>,
+            let weatherString = currentObservation["weather"] as? String,
+            let temperature = currentObservation["temperature_string"] as? String {
+            return WeatherData(weatherString: weatherString, temperature: temperature)
+        } else {
+            return nil
+        }
+    }
 }

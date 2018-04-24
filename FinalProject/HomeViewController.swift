@@ -12,10 +12,24 @@ import MBProgressHUD
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var weatherLable: UILabel!
+    @IBOutlet weak var temperatureLable: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        loadWeatherData()
+    }
+    
+    func loadWeatherData(){
+        var networkUtils = NetworkUtils()
+        
+        showLoadingHUD()
+        networkUtils.fetchWeatherData() { (weatherData) in
+            self.weatherLable.text = weatherData.weatherString
+            self.temperatureLable.text = weatherData.temperature
+            self.hideLoadingHUD()
+        }
     }
 
     override func didReceiveMemoryWarning() {

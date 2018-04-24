@@ -12,14 +12,24 @@ import Alamofire
 
 struct NetworkUtils {
     
-    var url = "http://api.wunderground.com/api/7b1d7f2dda02088f/conditions/q/CA/San_Francisco.json"
-    var json: String?
+    var weatherStringURL = "https://api.wunderground.com/api/7b1d7f2dda02088f/conditions/q/CA/San_Francisco.json"
     
-//    mutating func fetchToJson(url: URL) -> Data? {
-//        Alamofire.request(url,method: .get).responseJSON { response in
-//
-//        }
-//    }
+    mutating func fetchWeatherData(completion: @escaping (_ weatherData: WeatherData) -> Void) {
+        guard let url = URL(string: weatherStringURL) else {
+            return
+        }
+        Alamofire.request(url,method: .get).responseJSON { response in
+            if let json = response.result.value {
+                if let object = json as? [String: Any] {
+                    if let weatherData = WeatherData.parseJsonDictionaryToWeatherData(jsonDictionary: object) {
+                        completion(weatherData)
+                    }
+                }
+            }
+        }
+    }
     
-
+    init() {
+        
+    }
 }
