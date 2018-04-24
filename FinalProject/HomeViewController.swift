@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class HomeViewController: UIViewController {
-
+    
+    @IBOutlet weak var contentView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,13 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    private func showLoadingHUD() {
+        let hud = MBProgressHUD.showAdded(to: contentView, animated: true)
+        hud.label.text = "Loading..."
+    }
+    
+    private func hideLoadingHUD() {
+        MBProgressHUD.hide(for: contentView, animated: true)
+    }
 }
 

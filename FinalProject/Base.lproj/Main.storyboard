@@ -98,6 +98,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="pky-kk-cBV"/>
+                    <connections>
+                        <outlet property="contentView" destination="8bC-Xf-vdC" id="Wxk-dH-B88"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
