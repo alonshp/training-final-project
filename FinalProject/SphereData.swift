@@ -15,7 +15,7 @@ struct SphereData {
         items.append(Item(title: title, siteLogoStringURL: siteLogoStringURL, imageStringURL: imageStringURL))
     }
     
-    func parseSphere(jsonDictionary: [String : Any]) -> SphereData? {
+    static func parseJsonDictionaryToSphereData(jsonDictionary: [String : Any]) -> SphereData? {
         var sphereData = SphereData()
         if let items = jsonDictionary["items"] as? [Dictionary<String,Any>] {
             for item in items {
