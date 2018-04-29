@@ -17,6 +17,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var items: [SphereData.Item]?
     let networkUtils = NetworkUtils()
+    var offset = 0
 
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -33,18 +34,20 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func loadSphereData() {
         showLoadingHUD()
-        networkUtils.fetchSphereData() { (sphereData) in
+        networkUtils.fetchSphereData(offset: offset) { (sphereData) in
             self.items = sphereData.items
             self.hideLoadingHUD()
             self.collectionView.reloadData()
         }
+        offset += 10
     }
     
     func getMoreData() {
-        networkUtils.fetchSphereData() { (sphereData) in
+        networkUtils.fetchSphereData(offset: offset) { (sphereData) in
             self.items?.append(contentsOf: sphereData.items)
             self.collectionView.reloadData()
         }
+        offset += 10
     }
     
     

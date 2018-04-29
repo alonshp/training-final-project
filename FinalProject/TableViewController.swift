@@ -16,6 +16,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var contentView: UIView!
     
     var items: [SphereData.Item]?
+    var offset = 0
     
     let networkUtils = NetworkUtils()
 
@@ -29,26 +30,31 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView!.estimatedRowHeight = 300
+        
         loadSphereData()
         
     }
     
     func loadSphereData() {
         showLoadingHUD()
-        networkUtils.fetchSphereData() { (sphereData) in
+        networkUtils.fetchSphereData(offset: offset) { (sphereData) in
             self.items = sphereData.items
             self.hideLoadingHUD()
             self.tableView.reloadData()
             self.showSpinnerAtTheEndOfTheData()
         }
+        offset += 10
     }
     
     func getMoreData() {
-        networkUtils.fetchSphereData() { (sphereData) in
+        networkUtils.fetchSphereData(offset: offset) { (sphereData) in
             self.items?.append(contentsOf: sphereData.items)
-            self.tableView.reloadData()
+            let indexPaths = ((self.items?.count)! - 10 ..< (self.items?.count)!)
+                .map { IndexPath(row: $0, section: 0) }
+            self.tableView.insertRows(at: indexPaths, with: UITableViewRowAnimation.fade)
         }
+        offset += 10
     }
     
     func showSpinnerAtTheEndOfTheData(){
