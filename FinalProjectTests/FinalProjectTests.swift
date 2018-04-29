@@ -22,7 +22,7 @@ class FinalProjectTests: XCTestCase {
             if let file = testBundle.url(forResource: "wu_response", withExtension: "json") {
                 let data = try Data(contentsOf: file)
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-                weatherWuJson = json
+                self.weatherWuJson = json
             } else {
                 print("no file")
                 XCTFail()
@@ -36,7 +36,7 @@ class FinalProjectTests: XCTestCase {
     func testJsonToDictionary() {
         var weatherWuResponse = [String : Any]()
         
-        if let object = weatherWuJson as? [String: Any] {
+        if let object = self.weatherWuJson as? [String: Any] {
             weatherWuResponse = object
         } else {
             print("JSON is invalid")
