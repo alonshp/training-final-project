@@ -9,6 +9,7 @@
 import UIKit
 import MBProgressHUD
 import Kingfisher
+import SafariServices
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -63,6 +64,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showItemInSafariViewController(indexPath.row)
+    }
     
     private func showLoadingHUD() {
         let hud = MBProgressHUD.showAdded(to: contentView, animated: true)
@@ -71,5 +75,16 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     private func hideLoadingHUD() {
         MBProgressHUD.hide(for: contentView, animated: true)
+    }
+    
+    func showItemInSafariViewController(_ itemIndex: Int) {
+        if let item = items?[itemIndex],
+        let url = URL(string: item.itemStringURL) {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+            
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
+        }
     }
 }
