@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     }
     
     func loadWeatherData(){
-        var networkUtils = NetworkUtils()
+        let networkUtils = NetworkUtils()
         
         showLoadingHUD()
         networkUtils.fetchWeatherData() { (weatherData) in

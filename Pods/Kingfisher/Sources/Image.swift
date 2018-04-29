@@ -280,16 +280,16 @@ extension Kingfisher where Base: Image {
             return image
         #else
             
-            let image: Image?
+            let UISiteLogoImage: Image?
             if preloadAll || onlyFirstFrame {
                 guard let (images, gifDuration) = decode(from: imageSource, for: options) else { return nil }
-                image = onlyFirstFrame ? images.first : Kingfisher<Image>.animated(with: images, forDuration: duration <= 0.0 ? gifDuration : duration)
+                UISiteLogoImage = onlyFirstFrame ? images.first : Kingfisher<Image>.animated(with: images, forDuration: duration <= 0.0 ? gifDuration : duration)
             } else {
-                image = Image(data: data)
-                image?.kf.imageSource = ImageSource(ref: imageSource)
+                UISiteLogoImage = Image(data: data)
+                UISiteLogoImage?.kf.imageSource = ImageSource(ref: imageSource)
             }
-            image?.kf.animatedImageData = data
-            return image
+            UISiteLogoImage?.kf.animatedImageData = data
+            return UISiteLogoImage
         #endif
     }
 
