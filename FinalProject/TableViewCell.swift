@@ -9,7 +9,11 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var UISiteLogoImage: UIImageView!
+    @IBOutlet weak var titleLable: UILabel!
+    @IBOutlet weak var UIImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

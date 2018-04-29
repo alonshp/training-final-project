@@ -12,9 +12,10 @@ import Alamofire
 
 struct NetworkUtils {
     
-    var weatherStringURL = "https://api.wunderground.com/api/7b1d7f2dda02088f/conditions/q/CA/San_Francisco.json"
-    var sphereStringURL = "https://sphere-dev.outbrain.com/api/v1/recommendations/documents"
-    var sphereAuthorizationKey = "API_KEY c2e75315550543fdbf0a85e9a96a458e"
+    let weatherStringURL = "https://api.wunderground.com/api/7b1d7f2dda02088f/conditions/q/CA/San_Francisco.json"
+    let sphereStringURL = "https://sphere-dev.outbrain.com/api/v1/recommendations/documents"
+    let sphereAuthorizationKey = "API_KEY c2e75315550543fdbf0a85e9a96a458e"
+    let sphereUserID = "9afa6143-4357-4b27-8311-a3d4626259c7"
 
     
     func fetchWeatherData(completion: @escaping (_ weatherData: WeatherData) -> Void) {
@@ -36,12 +37,13 @@ struct NetworkUtils {
         guard let url = URL(string: sphereStringURL) else {
             return
         }
-        let parameters: Parameters = [
-            "limit" : 10,
-            "Authorization" : sphereAuthorizationKey
+        let params: Parameters = ["limit": 10]
+        let headers: HTTPHeaders = [
+            "Authorization" : sphereAuthorizationKey,
+            "X-USER-ID" : sphereUserID
         ]
         
-        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
+        Alamofire.request(url, parameters: params, headers: headers).responseJSON { response in
             if let json = response.result.value {
                 if let object = json as? [String: Any] {
                     if let sphereData = SphereData.parseJsonDictionaryToSphereData(jsonDictionary: object) {

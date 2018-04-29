@@ -184,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="1413.5999999999999" y="558.17091454272872"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="Gey-pk-GjW">
             <objects>
-                <viewController id="IKH-cg-rbj" sceneMemberID="viewController">
+                <viewController id="IKH-cg-rbj" customClass="TableViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tgA-PJ-LPy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,7 +196,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="530-dL-Nsy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemCell" id="530-dL-Nsy" customClass="TableViewCell" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="530-dL-Nsy" id="RJX-Bw-X7t">
@@ -243,6 +243,12 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="3it-Z6-4eM" secondAttribute="trailing" id="VaQ-8A-aqL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="Item Cell"/>
+                                        <connections>
+                                            <outlet property="UIImage" destination="p04-o0-Gga" id="cS1-m1-mxj"/>
+                                            <outlet property="UISiteLogoImage" destination="Hic-ic-zUF" id="PeZ-c6-mF0"/>
+                                            <outlet property="titleLable" destination="GDI-8Y-33t" id="IIL-X3-eya"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -257,6 +263,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="89m-2h-LFs"/>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="tgA-PJ-LPy" id="Bly-3U-ZH5"/>
+                        <outlet property="tableView" destination="A2m-mo-WKK" id="yuH-sx-vcJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXK-7j-sqB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
