@@ -9,10 +9,10 @@
 import Foundation
 struct SphereData {
     
-    var items = [Item]()
+    var items = [spherItem]()
     
     mutating func addItem(title: String, siteLogoStringURL: String, imageStringURL: String) {
-        items.append(Item(title: title, siteLogoStringURL: siteLogoStringURL, imageStringURL: imageStringURL))
+        items.append(spherItem(title: title, siteLogoStringURL: siteLogoStringURL, imageStringURL: imageStringURL))
     }
     
     static func parseSphere(jsonDictionary: [String : Any]) -> SphereData? {
@@ -34,7 +34,7 @@ struct SphereData {
         }
     }
     
-    struct Item {
+    struct spherItem {
         var title: String
         var siteLogoStringURL: String
         var imageStringURL: String
