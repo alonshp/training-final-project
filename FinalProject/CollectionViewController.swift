@@ -11,7 +11,7 @@ import MBProgressHUD
 import Kingfisher
 import SafariServices
 
-class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var contentView: UIView!
     
@@ -50,6 +50,13 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         offset += 10
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if UIDevice.current.orientation == .portrait {
+            return CGSize(width: collectionView.frame.width, height: 300)
+        } else {
+            return CGSize(width: (collectionView.frame.width - 20) / 2, height: 300)
+        }
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -78,6 +85,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         return cell
     }
+    
+
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let items = self.items {
