@@ -12,56 +12,43 @@ import XCTest
 
 class FinalProjectTests: XCTestCase {
     
-    var weatherWuResponse = [String : Any]()
     var sphereResponse = [String : Any]()
     
+    var weatherWuJson: Any?
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testWuResponseJsonToDictionary() {
         do {
             let testBundle = Bundle(for: type(of: self))
             if let file = testBundle.url(forResource: "wu_response", withExtension: "json") {
                 let data = try Data(contentsOf: file)
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let object = json as? [String: Any] {
-                    weatherWuResponse = object
-                } else {
-                    print("JSON is invalid")
-                }
+                self.weatherWuJson = json
             } else {
                 print("no file")
-            }
-            if let weatherData = parseWeather() {
-                XCTAssertEqual(weatherData.weatherString , "Clear")
-                XCTAssertEqual(weatherData.temperature , "50.8 F (10.4 C)")
-            } else {
                 XCTFail()
             }
         } catch {
             print(error.localizedDescription)
+            XCTFail()
         }
     }
     
-    func parseWeather() -> WeatherData? {
-        if let currentObservation = weatherWuResponse["current_observation"] as? Dictionary<String,Any>,
-            let weatherString = currentObservation["weather"] as? String,
-            let temperature = currentObservation["temperature_string"] as? String {
-                return WeatherData(weatherString: weatherString, temperature: temperature)
+    func testJsonToDictionary() {
+        var weatherWuResponse = [String : Any]()
+        
+        if let object = self.weatherWuJson as? [String: Any] {
+            weatherWuResponse = object
         } else {
-            return nil
+            print("JSON is invalid")
+            XCTFail()
+        }
+        if let weatherData = WeatherData.parseJsonDictionaryToWeatherData(jsonDictionary: weatherWuResponse) {
+            XCTAssertEqual(weatherData.weatherString , "Clear")
+            XCTAssertEqual(weatherData.temperature , "50.8 F (10.4 C)")
+        } else {
+            XCTFail()
         }
     }
     
@@ -113,12 +100,4 @@ class FinalProjectTests: XCTestCase {
             return nil
         }
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
