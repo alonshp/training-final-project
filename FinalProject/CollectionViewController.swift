@@ -28,6 +28,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidLoad()
         
         loadSphereData()
+        
     }
     
     func loadSphereData() {

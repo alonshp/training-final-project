@@ -29,6 +29,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         // Do any additional setup after loading the view.
         loadSphereData()
+        
     }
     
     func loadSphereData() {
@@ -39,7 +40,24 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.items = sphereData.items
             self.hideLoadingHUD()
             self.tableView.reloadData()
+            self.showSpinnerAtTheEndOfTheData()
         }
+    }
+    
+    func getMoreData() {
+        let networkUtils = NetworkUtils()
+        
+        networkUtils.fetchSphereData() { (sphereData) in
+            self.items?.append(contentsOf: sphereData.items)
+            self.tableView.reloadData()
+        }
+    }
+    
+    func showSpinnerAtTheEndOfTheData(){
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 44)
+        self.tableView.tableFooterView = spinner;
     }
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
@@ -66,6 +84,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showItemInSafariViewController(indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let items = self.items {
+            if (indexPath.row == items.count - 1) {
+                getMoreData() // network request to get more data
+            }
+        }
     }
     
     private func showLoadingHUD() {
