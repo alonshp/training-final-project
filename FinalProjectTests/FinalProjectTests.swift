@@ -12,7 +12,7 @@ import XCTest
 
 class FinalProjectTests: XCTestCase {
     
-    var weatherWuResponse = [String : Any]()
+    var weatherWuJson: Any?
 
     override func setUp() {
         super.setUp()
@@ -22,11 +22,7 @@ class FinalProjectTests: XCTestCase {
             if let file = testBundle.url(forResource: "wu_response", withExtension: "json") {
                 let data = try Data(contentsOf: file)
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let object = json as? [String: Any] {
-                    weatherWuResponse = object
-                } else {
-                    print("JSON is invalid")
-                }
+                weatherWuJson = json
             } else {
                 print("no file")
                 XCTFail()
@@ -38,6 +34,15 @@ class FinalProjectTests: XCTestCase {
     }
     
     func testJsonToDictionary() {
+        var weatherWuResponse = [String : Any]()
+        
+        if let object = weatherWuJson as? [String: Any] {
+            weatherWuResponse = object
+        } else {
+            print("JSON is invalid")
+            XCTFail()
+        }
+        
         if let weatherData = WeatherData.parseJsonDictionaryToWeatherData(jsonDictionary: weatherWuResponse) {
             XCTAssertEqual(weatherData.weatherString , "Clear")
             XCTAssertEqual(weatherData.temperature , "50.8 F (10.4 C)")
