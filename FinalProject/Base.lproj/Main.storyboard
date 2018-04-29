@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Collection View Controller-->
         <scene sceneID="pQH-rt-xip">
             <objects>
-                <viewController id="tyQ-vy-lN4" sceneMemberID="viewController">
+                <viewController id="tyQ-vy-lN4" customClass="CollectionViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qaz-bA-pFl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="K4h-YE-vJv">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="K4h-YE-vJv" customClass="CollectionViewCell" customModule="FinalProject" customModuleProvider="target">
                                         <rect key="frame" x="37.5" y="0.0" width="300" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -172,6 +172,11 @@
                                             <constraint firstAttribute="trailing" secondItem="XGv-vi-hLH" secondAttribute="trailing" constant="8" id="V5O-7d-AO1"/>
                                             <constraint firstItem="XGv-vi-hLH" firstAttribute="top" secondItem="K4h-YE-vJv" secondAttribute="top" constant="8" id="Zzp-42-fG0"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="itemImage" destination="4fy-hW-o6l" id="Yda-wT-7Oz"/>
+                                            <outlet property="logoImage" destination="reC-VQ-Tnk" id="fA2-Uc-Xlc"/>
+                                            <outlet property="titleLable" destination="DKq-0w-jIV" id="ki0-mD-P7a"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -179,6 +184,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="StH-Rb-ebo"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="xNM-mL-DbS" id="ilu-iL-LBP"/>
+                        <outlet property="contentView" destination="qaz-bA-pFl" id="Ppd-tb-YQa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMY-Ew-iwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
