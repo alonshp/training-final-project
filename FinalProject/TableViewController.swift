@@ -16,6 +16,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var contentView: UIView!
     
     var items: [SphereData.Item]?
+    
+    let networkUtils = NetworkUtils()
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -33,8 +35,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func loadSphereData() {
-        let networkUtils = NetworkUtils()
-        
         showLoadingHUD()
         networkUtils.fetchSphereData() { (sphereData) in
             self.items = sphereData.items
@@ -45,8 +45,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func getMoreData() {
-        let networkUtils = NetworkUtils()
-        
         networkUtils.fetchSphereData() { (sphereData) in
             self.items?.append(contentsOf: sphereData.items)
             self.tableView.reloadData()
