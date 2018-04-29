@@ -16,6 +16,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var contentView: UIView!
     
     var items: [SphereData.Item]?
+    var offset = 0
+    
+    let networkUtils = NetworkUtils()
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -27,19 +30,38 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView!.estimatedRowHeight = 300
+        
         loadSphereData()
+        
     }
     
     func loadSphereData() {
-        let networkUtils = NetworkUtils()
-        
         showLoadingHUD()
-        networkUtils.fetchSphereData() { (sphereData) in
+        networkUtils.fetchSphereData(offset: offset) { (sphereData) in
             self.items = sphereData.items
             self.hideLoadingHUD()
             self.tableView.reloadData()
+            self.showSpinnerAtTheEndOfTheData()
         }
+        offset += 10
+    }
+    
+    func getMoreData() {
+        networkUtils.fetchSphereData(offset: offset) { (sphereData) in
+            self.items?.append(contentsOf: sphereData.items)
+            let indexPaths = ((self.items?.count)! - 10 ..< (self.items?.count)!)
+                .map { IndexPath(row: $0, section: 0) }
+            self.tableView.insertRows(at: indexPaths, with: UITableViewRowAnimation.fade)
+        }
+        offset += 10
+    }
+    
+    func showSpinnerAtTheEndOfTheData(){
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 44)
+        self.tableView.tableFooterView = spinner;
     }
     
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
@@ -66,6 +88,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         showItemInSafariViewController(indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let items = self.items {
+            if (indexPath.row == items.count - 1) {
+                getMoreData() // network request to get more data
+            }
+        }
     }
     
     private func showLoadingHUD() {

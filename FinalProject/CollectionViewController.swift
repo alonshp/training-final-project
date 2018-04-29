@@ -16,6 +16,8 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet var contentView: UIView!
     
     var items: [SphereData.Item]?
+    let networkUtils = NetworkUtils()
+    var offset = 0
 
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -31,14 +33,21 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func loadSphereData() {
-        let networkUtils = NetworkUtils()
-        
         showLoadingHUD()
-        networkUtils.fetchSphereData() { (sphereData) in
+        networkUtils.fetchSphereData(offset: offset) { (sphereData) in
             self.items = sphereData.items
             self.hideLoadingHUD()
             self.collectionView.reloadData()
         }
+        offset += 10
+    }
+    
+    func getMoreData() {
+        networkUtils.fetchSphereData(offset: offset) { (sphereData) in
+            self.items?.append(contentsOf: sphereData.items)
+            self.collectionView.reloadData()
+        }
+        offset += 10
     }
     
     
@@ -68,6 +77,14 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let items = self.items {
+            if (indexPath.row == items.count - 1) {
+                getMoreData() // network request to get more data
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

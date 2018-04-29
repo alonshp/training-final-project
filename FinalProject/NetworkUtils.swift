@@ -33,11 +33,11 @@ struct NetworkUtils {
         }
     }
     
-    func fetchSphereData(completion: @escaping (_ sphereData: SphereData) -> Void) {
+    func fetchSphereData(offset: Int, completion: @escaping (_ sphereData: SphereData) -> Void) {
         guard let url = URL(string: sphereStringURL) else {
             return
         }
-        let params: Parameters = ["limit": 10]
+        let params: Parameters = ["limit": 10, "offset": offset]
         let headers: HTTPHeaders = [
             "Authorization" : sphereAuthorizationKey,
             "X-USER-ID" : sphereUserID
