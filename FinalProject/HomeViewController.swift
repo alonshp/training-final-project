@@ -16,6 +16,7 @@ class HomeViewController: VideoSplashViewController {
     @IBOutlet weak var weatherLable: UILabel!
     @IBOutlet weak var temperatureLable: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
