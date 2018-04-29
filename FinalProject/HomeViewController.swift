@@ -8,8 +8,9 @@
 
 import UIKit
 import MBProgressHUD
+import VideoSplashKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: VideoSplashViewController {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var weatherLable: UILabel!
@@ -19,6 +20,24 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         loadWeatherData()
+        
+        addVideoSplash()
+    }
+    
+    func addVideoSplash () {
+        if let path = Bundle.main.path(forResource: "sunrise", ofType: "mp4") {
+            let url = URL(fileURLWithPath: path)
+            self.videoFrame = view.frame
+            self.fillMode = .resizeAspectFill
+            self.alwaysRepeat = true
+            self.sound = false
+            self.startTime = 35.0
+            self.duration = 10.0
+            self.alpha = 0.7
+            self.backgroundColor = UIColor.black
+            self.contentURL = url
+            self.restartForeground = true
+        }
     }
     
     func loadWeatherData(){
