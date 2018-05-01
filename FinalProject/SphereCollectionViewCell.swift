@@ -11,7 +11,7 @@ import UIKit
 class SphereCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var siteLogoImageView: UIImageView!
-    @IBOutlet weak var titleLable: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sphereItemImageView: UIImageView!
     
     

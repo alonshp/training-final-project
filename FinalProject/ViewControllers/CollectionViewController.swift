@@ -76,7 +76,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
         if let itemCell = cell as? SphereCollectionViewCell,
             let item = items?[indexPath.item]{
-            itemCell.titleLable.text = item.title
+            itemCell.titleLabel.text = item.title
             if let siteLogoURL = URL(string: item.siteLogoStringURL),
                 let imageURL = URL(string: item.imageStringURL) {
                 itemCell.siteLogoImageView.kf.setImage(with: siteLogoURL)

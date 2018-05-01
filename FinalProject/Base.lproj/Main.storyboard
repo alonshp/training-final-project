@@ -179,7 +179,7 @@
                                         <connections>
                                             <outlet property="siteLogoImageView" destination="reC-VQ-Tnk" id="fA2-Uc-Xlc"/>
                                             <outlet property="sphereItemImageView" destination="4fy-hW-o6l" id="Yda-wT-7Oz"/>
-                                            <outlet property="titleLable" destination="DKq-0w-jIV" id="ki0-mD-P7a"/>
+                                            <outlet property="titleLabel" destination="DKq-0w-jIV" id="ki0-mD-P7a"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
