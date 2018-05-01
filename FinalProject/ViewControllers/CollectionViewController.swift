@@ -32,6 +32,12 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         loadSphereData()
     }
     
+    private func updateOffset() {
+        if let items = self.items {
+            self.offset += items.count
+        }
+    }
+    
     func loadSphereData() {
         showLoadingHUD()
         networkUtils.fetchSphereData(offset: offset) { (sphereData) in
@@ -39,7 +45,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             self.hideLoadingHUD()
             self.collectionView.reloadData()
         }
-        offset += 10
+        updateOffset()
     }
     
     func getMoreData() {
@@ -47,7 +53,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             self.items?.append(contentsOf: sphereData.items)
             self.collectionView.reloadData()
         }
-        offset += 10
+        updateOffset()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

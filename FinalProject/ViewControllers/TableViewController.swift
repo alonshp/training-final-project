@@ -36,6 +36,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    private func updateOffset() {
+        if let items = self.items {
+            self.offset += items.count
+        }
+    }
+    
     func loadSphereData() {
         showLoadingHUD()
         networkUtils.fetchSphereData(offset: offset) { (sphereData) in
@@ -44,7 +50,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.tableView.reloadData()
             self.showSpinnerAtTheEndOfTheData()
         }
-        offset += 10
+        updateOffset()
     }
     
     func getMoreData() {
@@ -54,7 +60,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 .map { IndexPath(row: $0, section: 0) }
             self.tableView.insertRows(at: indexPaths, with: UITableViewRowAnimation.fade)
         }
-        offset += 10
+        updateOffset()
     }
     
     func showSpinnerAtTheEndOfTheData(){
