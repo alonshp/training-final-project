@@ -15,7 +15,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var contentView: UIView!
     
-    var items: [SphereData.Item]?
+    var items: [SphereData.spherItem]?
     var offset = 0
     
     let networkUtils = NetworkUtils()

@@ -15,7 +15,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
 
     @IBOutlet var contentView: UIView!
     
-    var items: [SphereData.Item]?
+    var items: [SphereData.spherItem]?
     let networkUtils = NetworkUtils()
     var offset = 0
 
