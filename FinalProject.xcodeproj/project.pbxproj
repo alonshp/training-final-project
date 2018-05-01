@@ -14,8 +14,8 @@
 		162F65F7208F42EE00E7D0C3 /* sphere_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 162F65F6208F42EE00E7D0C3 /* sphere_response.json */; };
 		162F65F9208F442600E7D0C3 /* SphereData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F65F8208F442600E7D0C3 /* SphereData.swift */; };
 		162F65FB208F5A8D00E7D0C3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F65FA208F5A8D00E7D0C3 /* TableViewController.swift */; };
-		162F65FD208F5AB400E7D0C3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F65FC208F5AB400E7D0C3 /* TableViewCell.swift */; };
-		162F65FF20959C8000E7D0C3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F65FE20959C8000E7D0C3 /* CollectionViewCell.swift */; };
+		162F65FD208F5AB400E7D0C3 /* SphereTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F65FC208F5AB400E7D0C3 /* SphereTableViewCell.swift */; };
+		162F65FF20959C8000E7D0C3 /* SphereCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F65FE20959C8000E7D0C3 /* SphereCollectionViewCell.swift */; };
 		162F660120959CB800E7D0C3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F660020959CB800E7D0C3 /* CollectionViewController.swift */; };
 		162F660B2095BE7600E7D0C3 /* sunrise.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 162F660A2095BE7100E7D0C3 /* sunrise.mp4 */; };
 		1648D7AD208CAA8D00C698C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1648D7AC208CAA8D00C698C5 /* AppDelegate.swift */; };
@@ -46,8 +46,8 @@
 		162F65F6208F42EE00E7D0C3 /* sphere_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sphere_response.json; sourceTree = "<group>"; };
 		162F65F8208F442600E7D0C3 /* SphereData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereData.swift; sourceTree = "<group>"; };
 		162F65FA208F5A8D00E7D0C3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		162F65FC208F5AB400E7D0C3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		162F65FE20959C8000E7D0C3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		162F65FC208F5AB400E7D0C3 /* SphereTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereTableViewCell.swift; sourceTree = "<group>"; };
+		162F65FE20959C8000E7D0C3 /* SphereCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereCollectionViewCell.swift; sourceTree = "<group>"; };
 		162F660020959CB800E7D0C3 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		162F660A2095BE7100E7D0C3 /* sunrise.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sunrise.mp4; sourceTree = "<group>"; };
 		1648D7A9208CAA8D00C698C5 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,8 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				16C234C920984F57007265DF /* ViewControllers */,
-				162F65FC208F5AB400E7D0C3 /* TableViewCell.swift */,
-				162F65FE20959C8000E7D0C3 /* CollectionViewCell.swift */,
+				162F65FC208F5AB400E7D0C3 /* SphereTableViewCell.swift */,
+				162F65FE20959C8000E7D0C3 /* SphereCollectionViewCell.swift */,
 				1648D7B0208CAA8D00C698C5 /* Main.storyboard */,
 				16C234C820984F36007265DF /* Utils */,
 				16C234C720984F1B007265DF /* DataModel */,
@@ -356,11 +356,11 @@
 				162F660120959CB800E7D0C3 /* CollectionViewController.swift in Sources */,
 				1648D7AF208CAA8D00C698C5 /* HomeViewController.swift in Sources */,
 				162F65FB208F5A8D00E7D0C3 /* TableViewController.swift in Sources */,
-				162F65FF20959C8000E7D0C3 /* CollectionViewCell.swift in Sources */,
+				162F65FF20959C8000E7D0C3 /* SphereCollectionViewCell.swift in Sources */,
 				1648D7AD208CAA8D00C698C5 /* AppDelegate.swift in Sources */,
 				162F65F5208F040600E7D0C3 /* WeatherData.swift in Sources */,
 				162F65F9208F442600E7D0C3 /* SphereData.swift in Sources */,
-				162F65FD208F5AB400E7D0C3 /* TableViewCell.swift in Sources */,
+				162F65FD208F5AB400E7D0C3 /* SphereTableViewCell.swift in Sources */,
 				162F65F1208CCE5700E7D0C3 /* NetworkUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

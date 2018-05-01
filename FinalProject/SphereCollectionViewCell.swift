@@ -8,11 +8,11 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class SphereCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var siteLogoImageView: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
-    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var sphereItemImageView: UIImageView!
     
     
 }

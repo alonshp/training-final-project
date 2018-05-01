@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class SphereTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var UISiteLogoImage: UIImageView!
+    @IBOutlet weak var siteLogoImageView: UIImageView!
     @IBOutlet weak var titleLable: UILabel!
-    @IBOutlet weak var UIImage: UIImageView!
+    @IBOutlet weak var sphereItemImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

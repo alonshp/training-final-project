@@ -74,13 +74,13 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
-        if let itemCell = cell as? TableViewCell,
+        if let itemCell = cell as? SphereTableViewCell,
             let item = items?[indexPath.row]{
             itemCell.titleLable.text = item.title
             if let siteLogoURL = URL(string: item.siteLogoStringURL),
                 let imageURL = URL(string: item.imageStringURL) {
-                itemCell.UISiteLogoImage.kf.setImage(with: siteLogoURL)
-                itemCell.UIImage.kf.setImage(with: imageURL)
+                itemCell.siteLogoImageView.kf.setImage(with: siteLogoURL)
+                itemCell.sphereItemImageView.kf.setImage(with: imageURL)
             }
         }
         return cell

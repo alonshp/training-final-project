@@ -74,13 +74,13 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemCell", for: indexPath)
-        if let itemCell = cell as? CollectionViewCell,
+        if let itemCell = cell as? SphereCollectionViewCell,
             let item = items?[indexPath.item]{
             itemCell.titleLable.text = item.title
             if let siteLogoURL = URL(string: item.siteLogoStringURL),
                 let imageURL = URL(string: item.imageStringURL) {
-                itemCell.logoImage.kf.setImage(with: siteLogoURL)
-                itemCell.itemImage.kf.setImage(with: imageURL)
+                itemCell.siteLogoImageView.kf.setImage(with: siteLogoURL)
+                itemCell.sphereItemImageView.kf.setImage(with: imageURL)
             }
         }
         return cell
