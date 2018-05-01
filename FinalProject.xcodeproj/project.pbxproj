@@ -24,6 +24,7 @@
 		1648D7B4208CAA8D00C698C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1648D7B3208CAA8D00C698C5 /* Assets.xcassets */; };
 		1648D7B7208CAA8D00C698C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1648D7B5208CAA8D00C698C5 /* LaunchScreen.storyboard */; };
 		16C234CC209859F7007265DF /* SphereTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C234CB209859F7007265DF /* SphereTableDataSource.swift */; };
+		16C234D020986020007265DF /* SphereCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C234CF20986020007265DF /* SphereCollectionDataSource.swift */; };
 		6D806110CAEF6E730060B5CC /* Pods_FinalProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AFC5CE4F6A36F06FFF65382 /* Pods_FinalProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		1648D7B6208CAA8D00C698C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1648D7B8208CAA8D00C698C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16C234CB209859F7007265DF /* SphereTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereTableDataSource.swift; sourceTree = "<group>"; };
+		16C234CF20986020007265DF /* SphereCollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereCollectionDataSource.swift; sourceTree = "<group>"; };
 		9AFC5CE4F6A36F06FFF65382 /* Pods_FinalProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD2C8A3D708B9B3FE09F355A /* Pods-FinalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.debug.xcconfig"; sourceTree = "<group>"; };
 		D18A2AEABC5EAF28774F6115 /* Pods-FinalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalProject/Pods-FinalProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		16C234C720984F1B007265DF /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				16C234CF20986020007265DF /* SphereCollectionDataSource.swift */,
 				16C234CB209859F7007265DF /* SphereTableDataSource.swift */,
 				162F65F8208F442600E7D0C3 /* SphereData.swift */,
 				162F65F4208F040600E7D0C3 /* WeatherData.swift */,
@@ -359,6 +362,7 @@
 				16C234CC209859F7007265DF /* SphereTableDataSource.swift in Sources */,
 				162F660120959CB800E7D0C3 /* CollectionViewController.swift in Sources */,
 				1648D7AF208CAA8D00C698C5 /* HomeViewController.swift in Sources */,
+				16C234D020986020007265DF /* SphereCollectionDataSource.swift in Sources */,
 				162F65FB208F5A8D00E7D0C3 /* TableViewController.swift in Sources */,
 				162F65FF20959C8000E7D0C3 /* SphereCollectionViewCell.swift in Sources */,
 				1648D7AD208CAA8D00C698C5 /* AppDelegate.swift in Sources */,
