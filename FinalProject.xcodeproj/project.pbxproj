@@ -115,18 +115,15 @@
 		1648D7AB208CAA8D00C698C5 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
-				1648D7AE208CAA8D00C698C5 /* HomeViewController.swift */,
-				162F65FA208F5A8D00E7D0C3 /* TableViewController.swift */,
+				16C234C920984F57007265DF /* ViewControllers */,
 				162F65FC208F5AB400E7D0C3 /* TableViewCell.swift */,
 				162F65FE20959C8000E7D0C3 /* CollectionViewCell.swift */,
-				162F660020959CB800E7D0C3 /* CollectionViewController.swift */,
 				1648D7B0208CAA8D00C698C5 /* Main.storyboard */,
-				162F660A2095BE7100E7D0C3 /* sunrise.mp4 */,
+				16C234C820984F36007265DF /* Utils */,
+				16C234C720984F1B007265DF /* DataModel */,
+				16C234CA20984F7F007265DF /* VideoFiles */,
 				1648D7BE208CAAAA00C698C5 /* Supporting Files */,
 				1648D7B8208CAA8D00C698C5 /* Info.plist */,
-				162F65F0208CCE5700E7D0C3 /* NetworkUtils.swift */,
-				162F65F4208F040600E7D0C3 /* WeatherData.swift */,
-				162F65F8208F442600E7D0C3 /* SphereData.swift */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -139,6 +136,41 @@
 				1648D7B5208CAA8D00C698C5 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16C234C720984F1B007265DF /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				162F65F8208F442600E7D0C3 /* SphereData.swift */,
+				162F65F4208F040600E7D0C3 /* WeatherData.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		16C234C820984F36007265DF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				162F65F0208CCE5700E7D0C3 /* NetworkUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		16C234C920984F57007265DF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1648D7AE208CAA8D00C698C5 /* HomeViewController.swift */,
+				162F65FA208F5A8D00E7D0C3 /* TableViewController.swift */,
+				162F660020959CB800E7D0C3 /* CollectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		16C234CA20984F7F007265DF /* VideoFiles */ = {
+			isa = PBXGroup;
+			children = (
+				162F660A2095BE7100E7D0C3 /* sunrise.mp4 */,
+			);
+			path = VideoFiles;
 			sourceTree = "<group>";
 		};
 		4676238A0AD82E2ACDB4265A /* Pods */ = {
