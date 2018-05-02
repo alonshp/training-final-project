@@ -120,8 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				16C234C920984F57007265DF /* ViewControllers */,
-				162F65FC208F5AB400E7D0C3 /* SphereTableViewCell.swift */,
-				162F65FE20959C8000E7D0C3 /* SphereCollectionViewCell.swift */,
+				16C234D12099B221007265DF /* ViewControllersCells */,
 				1648D7B0208CAA8D00C698C5 /* Main.storyboard */,
 				16C234C820984F36007265DF /* Utils */,
 				16C234C720984F1B007265DF /* DataModel */,
@@ -177,6 +176,15 @@
 				162F660A2095BE7100E7D0C3 /* sunrise.mp4 */,
 			);
 			path = VideoFiles;
+			sourceTree = "<group>";
+		};
+		16C234D12099B221007265DF /* ViewControllersCells */ = {
+			isa = PBXGroup;
+			children = (
+				162F65FC208F5AB400E7D0C3 /* SphereTableViewCell.swift */,
+				162F65FE20959C8000E7D0C3 /* SphereCollectionViewCell.swift */,
+			);
+			path = ViewControllersCells;
 			sourceTree = "<group>";
 		};
 		4676238A0AD82E2ACDB4265A /* Pods */ = {
