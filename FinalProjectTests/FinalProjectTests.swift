@@ -67,7 +67,7 @@ class FinalProjectTests: XCTestCase {
             print("JSON is invalid")
         }
 
-        if let sphereData = SphereData.parseSphere(jsonDictionary: sphereResponse){
+        if let sphereData = SphereData.parseJsonDictionaryToSphereData(jsonDictionary: sphereResponse){
             XCTAssertEqual(sphereData.items[0].imageStringURL, "http://images.outbrain.com/transform/v3/eyJpdSI6IjMxY2E0ZWJmMDI3MGZmYzk1NDEwYjMwYmRkZWFhYjdhYmQ5MTg3NjYwYTVlOTRmNzFhYWQwZWMxZTNhYTc2OGMiLCJ3IjozODAsImgiOjI1MCwiZCI6MS41LCJjcyI6MCwiZiI6MH0.webp")
             XCTAssertEqual(sphereData.items[0].siteLogoStringURL, "http://images.outbrain.com/transform/v3/eyJpdSI6ImY5ZDZhZWUwNzMyYTU3ODRiMTkxZjZhYmYyYmIyZjA2MjRkMDNkNTY5N2QyYzdmOGFlMWFjOTAyZjVmY2EzZTUiLCJ3IjoxNTAsImgiOjE1MCwiZCI6MS41LCJjcyI6MCwiZiI6MH0.jpg")
             XCTAssertEqual(sphereData.items[0].title, "Waffle House shooting victims include college students and an employee")
