@@ -50,8 +50,8 @@ class TableViewController: UIViewController, UITableViewDelegate {
             self.hideLoadingHUD()
             self.tableView.reloadData()
             self.showSpinnerAtTheEndOfTheData()
+            self.updateOffset()
         }
-        updateOffset()
     }
     
     func getMoreData() {
@@ -60,8 +60,8 @@ class TableViewController: UIViewController, UITableViewDelegate {
             let indexPaths = ((self.dataSource.items?.count)! - 10 ..< (self.dataSource.items?.count)!)
                 .map { IndexPath(row: $0, section: 0) }
             self.tableView.insertRows(at: indexPaths, with: UITableViewRowAnimation.fade)
+            self.updateOffset()
         }
-        updateOffset()
     }
     
     func showSpinnerAtTheEndOfTheData(){

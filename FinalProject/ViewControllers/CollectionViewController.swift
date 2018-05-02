@@ -46,16 +46,16 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
             self.dataSource.items = sphereData.items
             self.hideLoadingHUD()
             self.collectionView.reloadData()
+            self.updateOffset()
         }
-        updateOffset()
     }
     
     func getMoreData() {
         networkUtils.fetchSphereData(offset: offset) { (sphereData) in
             self.dataSource.items?.append(contentsOf: sphereData.items)
             self.collectionView.reloadData()
+            self.updateOffset()
         }
-        updateOffset()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
